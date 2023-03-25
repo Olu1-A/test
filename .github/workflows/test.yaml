@@ -21,7 +21,8 @@ jobs:
           terraform_version: 1.1.9
       - name: terraform init
         run: terraform init
-
+      - name: terraform validate
+        run: terraform validate
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Run a multi-line script
