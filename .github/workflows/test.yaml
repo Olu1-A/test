@@ -1,8 +1,8 @@
 name: shell commands
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: [ "master" ]
+  #push:
+   #branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 jobs:
@@ -21,3 +21,10 @@ jobs:
          import platform
          print(platform.processor())
         shell: python
+
+  run-windows-commands:
+    runs-on: windows-latest
+    steps: 
+      - name: Directory
+        run: pwd
+        shell: bash
