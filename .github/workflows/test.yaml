@@ -15,6 +15,13 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v1
+      - name: setup terraform
+        uses: hashicorp/set-terraform@v2
+        with:
+          terraform_version: 1.1.9
+      - name: terraform init
+        run: terraform init
+
       - name: Run a one-line script
         run: echo Hello, world!
       - name: Run a multi-line script
