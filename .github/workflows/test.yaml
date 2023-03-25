@@ -1,0 +1,34 @@
+# This is a basic workflow to help you get started with Actions
+
+name: shell commands
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  
+  # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+      - name: Run a multi-line script
+        run: |
+          pwd
+          node -v
+          ls -a
+      - name: python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
+  run-windows-commands:
+    runs-on: windows-latest
+    needs: [run-shell-commands]
+    steps: 
+      - name: Directory
+        run: pwd
+        shell: bash      
