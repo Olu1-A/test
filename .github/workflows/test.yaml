@@ -13,7 +13,11 @@ env:
   
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  run-shell-commands:
+  terraform-workflow:
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
