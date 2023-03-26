@@ -7,6 +7,8 @@ resource "aws_vpc" "actions" {
   
   tags = {
     Name = "actions30"
+    Team = "Devops"
+    Environment = "prod"
   }
 }
 
@@ -18,8 +20,6 @@ terraform {
       version = "~> 3.0"
     }
   }
-
-
  backend "s3" {
    bucket= "awsterra"
    key = "prod/terraform.tfstate"
