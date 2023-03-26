@@ -32,11 +32,13 @@ jobs:
         run: terraform validate
       - name: terraform plan
         run: terraform plan
-     # - name: release
-       # run: npx semantic-release
-      #  env:
-      #    GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: release
+        run: npx semantic-release
+       #if: github.event_name == 'push' && github.ref == 'refs/heads/master' #only if 
+        env:
+         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: terraform apply
+      #if: github.event_name == 'push' && github.ref == 'refs/heads/master
         run: terraform apply -auto-approve  
       - name: terraform destroy
         run: terraform destroy -auto-approve
