@@ -22,7 +22,7 @@ terraform {
 
  backend "s3" {
    bucket= "awsterra"
-   key = "dev/terraform.tfstate"
+   key = "prod/terraform.tfstate"
    #dynamodbdynamodb_table = "value
    region = "us-west-1"
 
