@@ -9,3 +9,22 @@ resource "aws_vpc" "actions" {
     Name = "actions30"
   }
 }
+
+terraform {
+  required_version = "~> 1.0"
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "~3.0" #optional but recommended
+    }
+  }
+
+
+ backend "s3" {
+   bucket= "awsterra"
+   key = "prod/terraform.tfstate"
+   #dynamodbdynamodb_table = "value
+   region = "us-west-1"
+
+ }
+}
